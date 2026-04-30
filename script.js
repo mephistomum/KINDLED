@@ -40,3 +40,20 @@ function setupObserver() {
     observer.observe(card);
   });
 }
+
+  const hint = document.getElementById("scrollHint");
+
+  let hasScrolled = false;
+
+  // Hide when user scrolls
+  window.addEventListener("scroll", () => {
+    if (!hasScrolled) {
+      hint.classList.add("hide");
+      hasScrolled = true;
+    }
+  });
+
+  // Auto hide after 4 seconds (if user doesn't scroll)
+  setTimeout(() => {
+    hint.classList.add("hide");
+  }, 4000);
